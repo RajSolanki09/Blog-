@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post - BlogFlow</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/posts/dashboard" class="logo">BlogFlow</a>
+            <div class="user-info">
+                <a href="/posts/dashboard" class="btn btn-outline btn-sm">← Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Edit Post</h1>
+                <p class="card-subtitle">Make changes to your blog post</p>
+            </div>
+            
+            <form action="/posts/<%= post._id %>/update" method="POST">
+                <div class="form-group">
+                    <label for="title">Post Title</label>
+                    <input type="text" id="title" name="title" class="form-control" value="<%= post.title %>" placeholder="Enter your post title..." required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea id="content" name="content" class="form-control form-control-lg" placeholder="Write your post content here..." required><%= post.content %></textarea>
+                </div>
+                
+                <div class="actions">
+                    <button type="submit" class="btn btn-primary">Update Post</button>
+                    <a href="/posts/dashboard" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
